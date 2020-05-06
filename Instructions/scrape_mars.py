@@ -10,7 +10,6 @@ def init_browser():
     executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
     return Browser("chrome", **executable_path, headless=False)
     
-# create mars_data dict that we can insert into mongo
 mars_data = {}
 
 
@@ -121,24 +120,14 @@ def scrape_mars_hemispheres():
     return mars_data
 
 
-# def scrape(mars_data):
-#     final_report = ""
-#     for fp in mars_data:
-#         final_report += " " + fp.get_text()
-#         print(final_report)
+def getData(mars_data):
+    final_report = ""
+    for fp in mars_data:
+        final_report += " " + fp.get_text()
+        print(final_report)
 
-#     return final_report
-
-def scrape():
-    final_report = {}
-    
-    final_report["news_title"] = mars_data[0]
-    final_report["news_p"] = mars_data[1]
-    final_report["mars_weather_url"] = scrape_jpl()
-    final_report["mars_weather"] = scrape_mars_weather()
-    final_report["mars_facts"] = scrape_mars_facts()
-    final_report["hem_dic"] = scrape_mars_hemispheres()
     return final_report
+
 
 
     
